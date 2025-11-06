@@ -65,3 +65,10 @@ pip install tranforms3d
 ```
 
 # MAXON CAN COMMUNICATION 
+
+1. Download the kvaser sdk
+
+```bash
+https://kvaser.com/product/kvaser-usbcan-pro-2xhs-v2/
+
+```
