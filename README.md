@@ -68,7 +68,6 @@ pip install tranforms3d
 
 1. Download the kvaser sdk
 
-```bash
-https://kvaser.com/product/kvaser-usbcan-pro-2xhs-v2/
 
-```
+[Click Here](https://kvaser.com/product/kvaser-usbcan-pro-2xhs-v2/)
+
