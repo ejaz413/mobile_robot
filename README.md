@@ -117,3 +117,56 @@ sudo make install
 sudo mod_probe kvaser_usb
 
 ```
+9. Its better to remove the virtualcan by 
+
+```bash
+sudo modprobe -r kvvirtualcan
+
+```
+10. Reboot the system and then check  if it shows can0 using the command
+```bash
+ip link show
+
+```
+## Manual Testing
+
+1. Bring of can0
+
+```bash
+sudo ip link set can0 up type can bitrate 1000000
+```
+2. Verify
+
+```bash
+ip link show can0
+
+```
+3.  Open the terminal and type
+
+```bash
+candump can0
+```
+4.  Open another terminal and paste these commonds for 20000rpms for node 1
+
+```bash
+# Set mode to Profile Velocity
+cansend can0 601#2F60600003000000
+
+# Shutdown
+cansend can0 601#2B40600006000000
+
+# Switch On
+cansend can0 601#2B4060000F000000
+
+# Enable Operation
+cansend can0 601#2B4060001F000000
+
+# Set target velocity = 20,000 rpm
+cansend can0 601#23FF6000204E0000
+
+# Wait 2 seconds
+sleep 2
+
+# Stop motor
+cansend can0 601#2B40600000000000
+```
