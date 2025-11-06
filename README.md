@@ -71,3 +71,15 @@ pip install tranforms3d
 
 [Click Here](https://kvaser.com/product/kvaser-usbcan-pro-2xhs-v2/)
 
+2. Install the header files by issuing the command
+
+```bash
+
+sudo apt-get install build-essential 
+
+sudo apt-get install linux-headers-`uname -r` 
+
+sudo apt-get install pkg-config 
+
+```
+
