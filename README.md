@@ -170,3 +170,36 @@ sleep 2
 # Stop motor
 cansend can0 601#2B40600000000000
 ```
+## Maxon Epos4 Linux Library Setup
+
+1.  Navigate to /EPOS-Linux-Library-En/EPOS_Linux_Library and type the command
+```bash
+sudo bash ./install.sh
+```
+2. Then navigat to the examples and type
+
+```bash
+make
+```
+3. Your cpp file should match like this
+```bash
+void SetDefaultParameters()
+{
+	//USB
+	g_usNodeId = 1;
+	g_deviceName = "EPOS4"; 
+	g_protocolStackName = "CANopen"; 
+	g_interfaceName = "CAN_kvaser_usb 0"; 
+	g_portName = "CAN0"; 
+	g_baudrate = 1000000; 
+}
+```
+4. If you dont know about the the interface name and port name and protocolstackname then type 
+```bash
+./HelloEposCmd -l
+```
+
+5. Execute the executable HelloEposCmd
+```bash
+./HelloEposCmd
+```
