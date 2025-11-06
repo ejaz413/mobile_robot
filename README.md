@@ -82,4 +82,38 @@ sudo apt-get install linux-headers-`uname -r`
 sudo apt-get install pkg-config 
 
 ```
+3. Extract the sdk and navigate to linuxcan
 
+```bash 
+cd linuxcan
+```
+4. Build the Drivers
+
+```bash
+make
+```
+5. Install the Drivers
+
+```bash
+sudo make install
+```
+6. Install and load the virtual and PCI drivers
+
+```bash
+sudo make load
+```
+7. Navigate to the linuxcan-5.50-source-only.dkms and the dkms_source_tree and install the drivers
+
+```bash
+sudo make
+sudo make install
+```
+
+8. Navigate to kvlibsdk-5.50.312 and install the drivers and then at the end
+
+```bash
+sudo make
+sudo make install
+sudo mod_probe kvaser_usb
+
+```
