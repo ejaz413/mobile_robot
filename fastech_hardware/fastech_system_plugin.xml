@@ -1,0 +1,10 @@
+<library path="fastech_system">
+  <class
+      name="fastech_hardware/FastechSystem"
+      type="fastech_hardware::FastechSystem"
+      base_class_type="hardware_interface::SystemInterface">
+    <description>
+      Hardware interface for Fastech Plus-R servo using EziMOTION Plus-R SDK.
+    </description>
+  </class>
+</library>
