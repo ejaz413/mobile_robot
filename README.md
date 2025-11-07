@@ -70,9 +70,15 @@ pip install tranforms3d
 
 1. connect both EPOS controllers to each other using CAN to CAN connection cable and one of them to the kvaser 
 2. Connect the CANH (While) of the EPOS4 to the CANH (pin 7) of kvaser and CANL(brown) to CANL (pin2) of kvaser, GND(green) to pin3 and shield to pin5 of kvaser connector
+![Alt text](nodeid3.png)
 ![Alt text](nodeid4.png)
 3. Slected the node ids by changing the dip switches in EPOS for controller (our case switch 1 for node id 1 and 2 for node id 2)
+
+![Alt text](nodeid2.png)
+
 4. Turn on the terminator resister for both controll using dip switch 6. 
+
+![Alt text](nodeid.png)
 
 
 ## Software Setup
