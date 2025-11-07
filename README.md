@@ -66,6 +66,18 @@ pip install tranforms3d
 
 # MAXON CAN COMMUNICATION 
 
+## Hardware Setup
+
+1. connect both EPOS controllers to each other using CAN to CAN connection cable and one of them to the kvaser 
+2. Connect the CANH (While) of the EPOS4 to the CANH (pin 7) of kvaser and CANL(brown) to CANL (pin2) of kvaser, GND(green) to pin3 and shield to pin5 of kvaser connector
+![Alt text](nodeid4.png)
+3. Slected the node ids by changing the dip switches in EPOS for controller (our case switch 1 for node id 1 and 2 for node id 2)
+4. Turn on the terminator resister for both controll using dip switch 6. 
+
+
+## Software Setup
+
+
 1. Download the kvaser sdk
 
 
@@ -146,7 +158,7 @@ ip link show can0
 ```bash
 candump can0
 ```
-4.  Open another terminal and paste these commonds for 20000rpms for node 1
+4.  Open another terminal and paste these commonds one bye one for 20000rpms for node 1
 
 ```bash
 # Set mode to Profile Velocity
@@ -200,6 +212,7 @@ void SetDefaultParameters()
 ```
 
 5. Execute the executable HelloEposCmd
+
 ```bash
 ./HelloEposCmd
 ```
