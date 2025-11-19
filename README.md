@@ -70,15 +70,15 @@ pip install tranforms3d
 
 1. connect both EPOS controllers to each other using CAN to CAN connection cable and one of them to the kvaser 
 2. Connect the CANH (While) of the EPOS4 to the CANH (pin 7) of kvaser and CANL(brown) to CANL (pin2) of kvaser, GND(green) to pin3 and shield to pin5 of kvaser connector
-![Alt text](nodeid3.png)
-![Alt text](nodeid4.png)
+![Alt text](images/nodeid3.png)
+![Alt text](images/nodeid4.png)
 3. Slected the node ids by changing the dip switches in EPOS for controller (our case switch 1 for node id 1 and 2 for node id 2)
 
-![Alt text](nodeid2.png)
+![Alt text](images/nodeid2.png)
 
-4. Turn on the terminator resister for both controll using dip switch 6. 
+4. Turn on the terminator resister for both controll using dip switch 7. 
 
-![Alt text](nodeid.png)
+![Alt text](images/nodeid.png)
 
 
 ## Software Setup
@@ -127,9 +127,11 @@ sudo make
 sudo make install
 ```
 
-8. Navigate to kvlibsdk-5.50.312 and install the drivers and then at the end
-
+8. Download and Install Kvaser CANlib SDK 
 ```bash
+wget --content-disposition "https://www.kvaser.com/downloads-kvaser/?utm_source=software&utm_ean=7330130981966&utm_status=latest"
+tar xvzf kvlibsdk.tar.gz
+cd kvlibsdk
 sudo make
 sudo make install
 sudo mod_probe kvaser_usb
@@ -169,23 +171,33 @@ candump can0
 ```bash
 # Set mode to Profile Velocity
 cansend can0 601#2F60600003000000
+cansend can0 602#2F60600003000000
+
+# Clear Faults
+cansend can0 601#2F60600080000000
+cansend can0 602#2F60600080000000
 
 # Shutdown
 cansend can0 601#2B40600006000000
+cansend can0 602#2B40600006000000
 
 # Switch On
 cansend can0 601#2B4060000F000000
+cansend can0 602#2B4060000F000000
 
 # Enable Operation
 cansend can0 601#2B4060001F000000
+cansend can0 602#2B4060001F000000
 
 # Set target velocity = 20,000 rpm
 cansend can0 601#23FF6000204E0000
+cansend can0 602#23FF6000204E0000
 
 # Wait 2 seconds
 sleep 2
 
 # Stop motor
+cansend can0 601#2B40600000000000
 cansend can0 601#2B40600000000000
 ```
 ## Maxon Epos4 Linux Library Setup
@@ -221,4 +233,10 @@ void SetDefaultParameters()
 
 ```bash
 ./HelloEposCmd
+```
+## If the connection does not work then debug it by 
+```bash
+sudo modprobe -r kvaser_usb 
+sudo modprobe kvaser_usb
+sudo dmesg | grep -i kvaser
 ```

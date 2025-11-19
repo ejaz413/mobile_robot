@@ -1,21 +1,27 @@
 {
-  "configurations": [
-    {
-      "browse": {
-        "databaseFilename": "${workspaceFolder}/.vscode/browse.vc.db",
-        "limitSymbolsToIncludedHeaders": false
-      },
-      "includePath": [
-        "/opt/ros/jazzy/include/**",
-        "/home/pavetech/crawler_ws/src/fastech_hardware/include/**",
-        "/usr/include/**"
-      ],
-      "name": "ros2",
-      "intelliSenseMode": "gcc-x64",
-      "compilerPath": "/usr/bin/gcc",
-      "cStandard": "gnu11",
-      "cppStandard": "c++17"
-    }
-  ],
-  "version": 4
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "${workspaceFolder}/.vscode/browse.vc.db",
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "includePath": [
+                "/opt/ros/jazzy/include/**",
+                "/home/pavetech/crawler_ws/src/fastech_hardware/include/**",
+                
+                "/home/pavetech/crawler_ws/src/maxon_hardware/include**",
+                "/usr/include/**",
+                "/opt/ros/jazzy/include/rclcpp",
+                "${workspaceFolder}/maxon_hardware/include/maxon_hardware",
+                "/opt/ros/jazzy/include/hardware_interface",
+                "/opt/ros/jazzy/include/rcl_interfaces"
+            ],
+            "name": "ros2",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
 }

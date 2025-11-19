@@ -1,0 +1,13 @@
+<library path="maxon_hardware">
+    <class name="mobile_base_hardware/MobileBaseHardwareInterface"
+           type="mobile_base_hardware::MobileBaseHardwareInterface"
+           base_class_type="hardware_interface::SystemInterface">
+        <description>
+            Hardware interface for maxon motors
+        </description>
+    </class>
+
+
+
+
+</library>
